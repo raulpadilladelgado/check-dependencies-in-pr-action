@@ -1,6 +1,13 @@
 # action.yml
 name: 'Check Dependencies In Pull Request'
 description: 'A Github action that publish a comment in your PR when its necessary to update gradle dependencies'
+inputs:
+  pull-request-url:  # id of input
+    description: 'Pull request url'
+    required: true
+  github-token:
+    description: 'Github token'
+    required: true
 outputs:
   outdated:
     description: 'Dependencies with newer available releases'

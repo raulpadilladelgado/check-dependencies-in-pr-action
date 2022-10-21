@@ -5,8 +5,15 @@ chmod +x gradlew
 outdated=$(jq -r '.outdated.dependencies | .[] | "\(.name) \(.version) -> \(.available.release)"' < build/dependencyUpdates/report.json)
 if [ -z "$outdated" ] ; then
   echo "Congratulations, all your dependencies have the latest releases!"
-  exit 1
+  exit 0
 fi
 echo "outdated<<EOF" >> $GITHUB_ENV
 echo "$outdated" >> $GITHUB_ENV
 echo "EOF" >> $GITHUB_ENV
+
+curl \
+  -X POST \
+  $1 \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token $2" \
+  --data '{ "body": "blah blah" }'
