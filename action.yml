@@ -2,7 +2,7 @@
 name: 'Check Dependencies In Pull Request'
 description: 'A Github action that publish a comment in your PR when its necessary to update gradle dependencies'
 inputs:
-  pull-request-url:
+  PULL_REQUEST_URL:
     description: 'Pull request url'
     required: true
   github-token:

@@ -11,7 +11,7 @@ echo "outdated<<EOF" >> $GITHUB_ENV
 echo "$outdated" >> $GITHUB_ENV
 echo "EOF" >> $GITHUB_ENV
 
-echo $pull-request-url
+echo "$PULL_REQUEST_URL"
 echo $2
 
 curl \
