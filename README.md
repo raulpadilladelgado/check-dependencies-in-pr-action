@@ -1,25 +1,35 @@
-[//]: # (# check-dependencies-in-pr-action)
+# Check Dependencies in Pull Request Action
 
-[//]: # (A Github action that publish a comment in your PR when it's neccesary to update gradle dependencies)
-
-# Hello world docker action
-
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
-
-## Inputs
-
-## `who-to-greet`
-
-**Required** The name of the person to greet. Default `"World"`.
+A GitHub action that publish a comment in your PR when it's necessary to update gradle dependencies
 
 ## Outputs
 
-## `time`
+## `outdated`
 
-The time we greeted you.
+Dependencies with newer available releases
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v2
-with:
-who-to-greet: 'Mona the Octocat'
+```yaml
+name: Check Dependencies
+
+on: pull_request
+
+jobs:
+  dependency_check_in_pr_job:
+  runs-on: ubuntu-latest
+  name: A job to say hello
+  steps:
+    - name: Check Dependencies
+      id: dependency_check
+      uses: raulpadilladelgado/check-dependencies-in-pr-action@main
+    - name: Publish Comment
+      uses: mshick/add-pr-comment@v1
+      with:
+        message: |
+          **Dependencies with newer available releases:**
+          ${{ steps.dependency_check.outputs.outdated }}
+repo-token: ${{ secrets.GITHUB_TOKEN }}
+repo-token-user-login: 'github-actions[bot]'
+```
+
