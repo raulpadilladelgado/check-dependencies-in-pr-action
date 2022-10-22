@@ -11,6 +11,6 @@ fi
 curl \
   -X POST \
   "$1" \
-  -H "Content-Type: application/json" \
+  -H "Content-Type: text/plain" \
   -H "Authorization: token $2" \
   --data '{ "body": '"$outdated"' }'
