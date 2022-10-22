@@ -1,11 +1,10 @@
-# action.yml
 name: 'Check Dependencies In Pull Request'
 description: 'A Github action that publish a comment in your PR when its necessary to update gradle dependencies'
 inputs:
-  PULL_REQUEST_URL:
+  pull_request_url:
     description: 'Pull request url'
     required: true
-  github-token:
+  github_token:
     description: 'Github token'
     required: true
 outputs:
@@ -14,3 +13,6 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.pull_request_url }}
+    - ${{ inputs.github_token }}
