@@ -8,6 +8,10 @@ if [ -z "$outdated" ]; then
   exit 0
 fi
 
+echo "$1"
+echo "$2"
+echo "$outdated"
+
 curl \
   -X POST \
   "$1" \
