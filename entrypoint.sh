@@ -15,6 +15,6 @@ echo "$outdated"
 curl \
   -X POST \
   "$1" \
-  -H "Content-Type: text/plain" \
+  -H "Content-Type: application/json" \
   -H "Authorization: token $2" \
-  --data '{ "body": '"$outdated"' }'
+  --data '{ "body": '"\"$outdated\""' }'
