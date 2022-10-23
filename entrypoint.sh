@@ -13,8 +13,4 @@ curl \
   "$1" \
   -H "Content-Type: application/json" \
   -H "Authorization: token $2" \
-  --data '{ "body": '"\"Dependencies with newer available releases:
-  \```diff
-  $outdated
-  \```
-  \""' }'
+  --data '{ "body": '"\"Dependencies with newer releases available:\n\`\`\`diff\n$outdated\n\`\`\`\""' }'
