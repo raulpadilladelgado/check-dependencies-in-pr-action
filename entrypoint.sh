@@ -19,4 +19,4 @@ curl \
   "$1" \
   -H "Content-Type: text/plain" \
   -H "Authorization: token $2" \
-  --data "$requestBody"
+  --data '{ "body": "'"$requestBody"'" }'
