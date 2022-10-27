@@ -8,7 +8,7 @@ if [ -z "$outdated" ]; then
   exit 0
 fi
 
-equestBody='**Dependencies with newer available releases:**\\n```diff\\n'"$outdated"'```'
+requestBody='**Dependencies with newer available releases:**\\n```diff\\n'"$outdated"'```'
 
 curl \
   -X POST \
