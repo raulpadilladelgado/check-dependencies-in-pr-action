@@ -8,14 +8,11 @@ if [ -z "$outdated" ]; then
   exit 0
 fi
 
-requestBody='**Dependencies with newer available releases:**
-\`\`\`diff
-'"$outdated"'
-\`\`\`'
+requestBody={"body": "**Dependencies with newer available releases:**\n```diff\n$outdated\n```"}
 
 curl \
   -X POST \
   "$1" \
-  -H "Content-Type: text/plain" \
+  -H "Content-Type: application/json" \
   -H "Authorization: token $2" \
-  --data '{ "body": "'$requestBody'" }'
+  --data $requestBody
