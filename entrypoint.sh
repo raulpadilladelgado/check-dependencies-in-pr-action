@@ -10,9 +10,9 @@ fi
 
 curl \
   -X POST \
-  "https://api.github.com/repos/raulpadilladelgado/aguacate/issues/2/comments" \
+  "$1" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token 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" \
+  -H "Authorization: token $2" \
   -d \
   "
   {
