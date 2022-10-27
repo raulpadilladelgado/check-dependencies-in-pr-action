@@ -8,11 +8,14 @@ if [ -z "$outdated" ]; then
   exit 0
 fi
 
-requestBody='**Dependencies with newer available releases:**\\n```diff\\n'"$outdated"'```'
-
 curl \
   -X POST \
-  "$1" \
+  "https://api.github.com/repos/raulpadilladelgado/aguacate/issues/2/comments" \
   -H "Content-Type: application/json" \
-  -H "Authorization: token $2" \
-  --data '{"body": "'$requestBody'"}'
+  -H "Authorization: token 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" \
+  -d \
+  "
+  {
+        \"body\": \"**Dependencies with newer available releases:**\n\`\`\`diff\n$outdated\`\`\`\"
+  }
+  "
