@@ -16,7 +16,7 @@ curl \
   -d \
   "
   {
-        \"body\": \"**Dependencies with newer available releases:**\n\`\`\`diff\n$outdated\`\`\`\"
+        \"body\": \"**Dependencies with newer available releases:**\n\`\`\`diff\n$outdated\n\`\`\`\"
   }
   "
 
