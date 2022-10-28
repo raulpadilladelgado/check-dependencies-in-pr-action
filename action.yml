@@ -14,5 +14,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ github.event.pull_request.comments_url }}
+    - ${{ secrets.GITHUB_TOKEN }}
     - ${{ inputs.pull_request_url }}
     - ${{ inputs.github_token }}
