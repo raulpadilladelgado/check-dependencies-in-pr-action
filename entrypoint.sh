@@ -18,6 +18,6 @@ curl \
   -d \
   "
   {
-        \"body\": \"$outdated\"
+        \"body\": \"**Dependencies with newer available releases:**\n$outdated\"
   }
   "
