@@ -16,18 +16,18 @@ curl \
   -d \
   "
   {
-        \"body\": \"**Dependencies with newer available releases:**\n\`\`\`diff\n$outdated\n\`\`\`\"
+        \"body\": \"**Dependencies with newer available releases:**\n\`\`\`diff\n"$outdated"\n\`\`\`\"
   }
   "
 
-curl \
-  -X POST \
-  "https://api.github.com/repos/raulpadilladelgado/aguacate/issues/2/comments" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: token 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" \
-  -d \
-  "
-  {
-        \"body\": \"**Dependencies with newer available releases:**\n\`\`\`diff\naguacate\n-1.2\n+2.3\n\`\`\`\"
-  }
-  "
+#curl \
+#  -X POST \
+#  "https://api.github.com/repos/raulpadilladelgado/aguacate/issues/2/comments" \
+#  -H "Content-Type: application/json" \
+#  -H "Authorization: token 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" \
+#  -d \
+#  "
+#  {
+#        \"body\": \"**Dependencies with newer available releases:**\n\`\`\`diff\naguacate\n-1.2\n+2.3\n\`\`\`\"
+#  }
+#  "
