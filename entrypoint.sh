@@ -3,8 +3,11 @@
 chmod +x gradlew
 ./gradlew dependencyUpdates -Drevision=release -DoutputFormatter=json
 outdated=$(jq -r '.outdated.dependencies | .[] | "\(.name) \(.version) => \(.available.release)"' build/dependencyUpdates/report.json)
-if [ -z "$outdated" ]; then
+if [ -z "$outdated" ];
+then
   outdated="Congratulations, all your dependencies have the latest releases!"
+else
+  outdated=$(echo "$outdated" | sed -E ':a;N;$!ba;s/\r{0,1}\n/\\n/g')
 fi
 
 curl \
