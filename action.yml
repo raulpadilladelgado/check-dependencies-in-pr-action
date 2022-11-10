@@ -13,3 +13,6 @@ runs:
   args:
     - ${{ inputs.pull_request_url }}
     - ${{ inputs.github_token }}
+branding:
+  icon: 'arrow-up-circle'
+  color: blue
