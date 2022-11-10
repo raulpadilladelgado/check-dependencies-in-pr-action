@@ -2,34 +2,35 @@
 
 A GitHub action that publish a comment in your PR when it's necessary to update gradle dependencies
 
-## Outputs
+## Inputs
 
-## `outdated`
+## `pull_request_url`
 
-Dependencies with newer available releases
+The pull request URL to publish the result
+
+## `github_token`
+
+The project's GitHub token for posting the comment.
 
 ## Example usage
 
 ```yaml
 name: Check Dependencies
 
-on: pull_request
-
+on:
+  pull_request:
+    types: [opened]
 jobs:
-  dependency_check_in_pr_job:
-  runs-on: ubuntu-latest
-  name: A job to say hello
-  steps:
-    - name: Check Dependencies
-      id: dependency_check
-      uses: raulpadilladelgado/check-dependencies-in-pr-action@main
-    - name: Publish Comment
-      uses: mshick/add-pr-comment@v1
-      with:
-        message: |
-          **Dependencies with newer available releases:**
-          ${{ steps.dependency_check.outputs.outdated }}
-repo-token: ${{ secrets.GITHUB_TOKEN }}
-repo-token-user-login: 'github-actions[bot]'
+  dependency_check:
+    runs-on: ubuntu-latest
+    name: Check dependencies and add a comment in the PR with the result
+    steps:
+      - name: Checkout project sources
+        uses: actions/checkout@v2
+      - name: Check Dependencies
+        uses: raulpadilladelgado/check-dependencies-in-pr-action@main
+        with:
+          pull_request_url: ${{ github.event.pull_request.comments_url }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 

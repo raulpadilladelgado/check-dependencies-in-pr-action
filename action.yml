@@ -1,5 +1,5 @@
 name: 'Check Dependencies In Pull Request'
-description: 'A Github action that publish a comment in your PR when its necessary to update gradle dependencies'
+description: 'A Github Action that publishes a comment in your PR notifying what Gradle dependencies need to be updated'
 inputs:
   pull_request_url:
     description: 'Pull request url'
@@ -7,9 +7,6 @@ inputs:
   github_token:
     description: 'Github token'
     required: true
-outputs:
-  outdated:
-    description: 'Dependencies with newer available releases'
 runs:
   using: 'docker'
   image: 'Dockerfile'
