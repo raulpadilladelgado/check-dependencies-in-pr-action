@@ -8,8 +8,8 @@ if [ -z "$outdated" ];
 then
   message="Congratulations, all your dependencies have the latest releases! 🥳"
 else
-  outdated=$(echo "$outdated" | sed -E ':a;N;$!ba;s/\r{0,1}\n/\\n/g')
   countOutdated=$(echo "$outdated" | wc -l)
+  outdated=$(echo "$outdated" | sed -E ':a;N;$!ba;s/\r{0,1}\n/\\n/g')
   message="**You have $countOutdated dependencies with newer available releases:**\n$outdated"
 fi
 
