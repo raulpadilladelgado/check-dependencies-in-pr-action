@@ -35,7 +35,7 @@ jobs:
       - name: Checkout project sources
         uses: actions/checkout@v2
       - name: Check Dependencies
-        uses: raulpadilladelgado/check-dependencies-in-pr-action@1.0.0
+        uses: raulpadilladelgado/check-dependencies-in-pr-action@1.0.1
         with:
           pull_request_url: ${{ github.event.pull_request.comments_url }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
